@@ -1,0 +1,10 @@
+.product-img {
+    max-height: 300px;
+    object-fit: cover;
+}
+.short-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

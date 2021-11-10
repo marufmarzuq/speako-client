@@ -5,6 +5,8 @@ import ScrollToTop from "./Shared/ScrollToTop";
 import Home from "./Pages/Home/Home";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Login from "./Pages/LoginSystem/Login/Login";
+import Products from "./Pages/Products/Products";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -18,6 +20,12 @@ function App() {
                         </Route>
                         <Route exact path="/login">
                             <Login></Login>
+                        </Route>
+                        <Route exact path="/products">
+                            <Products></Products>
+                        </Route>
+                        <Route exact path="/dashboard">
+                            <Dashboard></Dashboard>
                         </Route>
                     </Switch>
                 </BrowserRouter>

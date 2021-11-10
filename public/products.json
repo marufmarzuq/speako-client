@@ -1,41 +1,41 @@
 [
     {
-        "product": "Breva Speakers",
+        "name": "Breva Speakers",
         "price": "0.6.6",
         "rating": "jstormes0@npr.org",
         "imgURL": "https://i.ibb.co/0hK8mFb/product1.png",
         "description": "Antechinus flavipes"
     },
     {
-        "product": "Breva Speakers",
+        "name": "Breva Speakers",
         "price": "4.1.4",
         "rating": "kmellings1@4shared.com",
         "imgURL": "https://i.ibb.co/0hK8mFb/product1.png",
         "description": "Oxybelis fulgidus"
     },
     {
-        "product": "Jenilee",
+        "name": "Jenilee",
         "price": "0.15",
         "rating": "jshellard2@123-reg.co.uk",
         "imgURL": "https://i.ibb.co/0hK8mFb/product1.png",
         "description": "Climacteris melanura"
     },
     {
-        "product": "Gabriela",
+        "name": "Gabriela",
         "price": "0.73",
         "rating": "gcayton3@hao123.com",
         "imgURL": "https://i.ibb.co/0hK8mFb/product1.png",
         "description": "Microcebus murinus"
     },
     {
-        "product": "Marcelo",
+        "name": "Marcelo",
         "price": "6.10",
         "rating": "mendicott4@icq.com",
         "imgURL": "https://i.ibb.co/0hK8mFb/product1.png",
         "description": "Rhea americana"
     },
     {
-        "product": "Norry",
+        "name": "Norry",
         "price": "4.4.1",
         "rating": "nmoncur5@umn.edu",
         "imgURL": "https://i.ibb.co/0hK8mFb/product1.png",
