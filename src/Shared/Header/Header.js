@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import "./Header.css";
 
 const Header = () => {
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
     return (
         <header>
             <Navbar collapseOnSelect expand="lg" sticky="top" bg="light" variant="light">
@@ -19,12 +19,28 @@ const Header = () => {
                             <Nav.Link as={Link} to="/products">
                                 Products
                             </Nav.Link>
-                            <Nav.Link className="me-2" as={Link} to="/dashboard">
-                                Dashboard
+                            {user.email && (
+                                <Nav.Link className="me-2" as={Link} to="/dashboard">
+                                    Dashboard
+                                </Nav.Link>
+                            )}
+                            <Nav.Link
+                                style={{ pointerEvents: "none", fontWeight: "600" }}
+                                className="me-2"
+                                as={Link}
+                                to="/"
+                            >
+                                {user.displayName}
                             </Nav.Link>
-                            <Nav.Link className="login-btn" as={Link} to="/login">
-                                Login
-                            </Nav.Link>
+                            {user.email ? (
+                                <Nav.Link onClick={logOut} className="login-btn" as={Link} to="/login">
+                                    Log Out
+                                </Nav.Link>
+                            ) : (
+                                <Nav.Link className="login-btn" as={Link} to="/login">
+                                    Login
+                                </Nav.Link>
+                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

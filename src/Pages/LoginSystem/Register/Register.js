@@ -9,7 +9,7 @@ import Header from "../../../Shared/Header/Header";
 const Register = () => {
     const [name, setName] = useState("");
     const [error, setError] = useState("");
-    const { createAccountWithEmailPassword, auth, setUser, updateProfile } = useAuth();
+    const { createAccountWithEmailPassword, auth, setUser, updateProfile, logOut } = useAuth();
     const history = useHistory();
     const {
         register,
@@ -31,9 +31,9 @@ const Register = () => {
                 setError("");
                 setUser("");
                 setUserName();
-                //  history.push("/login");
+                logOut();
                 alert("Account created successfuly");
-                console.log(result);
+                history.push("/");
                 reset();
             })
             .catch((error) => {

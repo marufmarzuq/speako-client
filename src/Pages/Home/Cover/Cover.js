@@ -19,7 +19,7 @@ const Cover = () => {
                             <div className="btn-container">
                                 <button className="cover-btn">Learn More</button>
                                 <button className="cover-btn">
-                                    <i class="far fa-play-circle"></i> Watch Video
+                                    <i className="far fa-play-circle"></i> Watch Video
                                 </button>
                             </div>
                         </div>

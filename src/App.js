@@ -8,6 +8,8 @@ import Login from "./Pages/LoginSystem/Login/Login";
 import Products from "./Pages/Products/Products";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Register from "./Pages/LoginSystem/Register/Register";
+import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
+import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 
 function App() {
     return (
@@ -28,6 +30,9 @@ function App() {
                         <Route exact path="/products">
                             <Products></Products>
                         </Route>
+                        <PrivateRoute exact path="/products/:name">
+                            <PlaceOrder></PlaceOrder>
+                        </PrivateRoute>
                         <Route exact path="/dashboard">
                             <Dashboard></Dashboard>
                         </Route>

@@ -18,12 +18,12 @@ const Footer = () => {
                         <span className="pb-3">Mon – Fre : 8.00am – 6.00pm 112W 34th St, New York</span>
                         <span>
                             <a href="#">
-                                <i class="fas fa-phone-alt"></i> (1)-2340-33-455
+                                <i className="fas fa-phone-alt"></i> (1)-2340-33-455
                             </a>
                         </span>
                         <span>
                             <a href="#">
-                                <i class="far fa-envelope"></i> email@speako.com
+                                <i className="far fa-envelope"></i> email@speako.com
                             </a>
                         </span>
                     </div>
@@ -39,7 +39,7 @@ const Footer = () => {
                         <p>Get the latest business resources on the market delivered to your inbox.</p>
                         <div className="newsletter-box">
                             <input type="text" placeholder="Enter your email address" />
-                            <i class="fas fa-paper-plane"></i>
+                            <i className="fas fa-paper-plane"></i>
                         </div>
                     </div>
                 </div>
@@ -47,19 +47,19 @@ const Footer = () => {
                     <div className="col-md-8">Copyright &copy;2021 Mahmudul H. All Rights Reserved.</div>
                     <div className="col-md-4 footer-icons">
                         <a href="#">
-                            <i class="fab fa-facebook-f"></i>
+                            <i className="fab fa-facebook-f"></i>
                         </a>
                         <a href="#">
-                            <i class="fab fa-pinterest-p"></i>
+                            <i className="fab fa-pinterest-p"></i>
                         </a>
                         <a href="#">
-                            <i class="fab fa-twitter"></i>
+                            <i className="fab fa-twitter"></i>
                         </a>
                         <a href="#">
-                            <i class="fab fa-facebook-f"></i>
+                            <i className="fab fa-facebook-f"></i>
                         </a>
                         <a href="#">
-                            <i class="fab fa-instagram"></i>
+                            <i className="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
