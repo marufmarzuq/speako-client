@@ -22,3 +22,9 @@
     margin-bottom: 7px;
     font-size: 18px;
 }
+.hide-row {
+    display: none;
+}
+.show-row {
+    display: flex;
+}

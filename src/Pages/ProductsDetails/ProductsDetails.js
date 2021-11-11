@@ -7,6 +7,8 @@ import "./ProductsDetails.css";
 
 const ProductsDetails = () => {
     const { id } = useParams("id");
+    const [productClass, setOrderClass] = useState("row");
+    const [orderClass, setProductClass] = useState("row hide-row");
     const [product, setProduct] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
@@ -15,12 +17,16 @@ const ProductsDetails = () => {
     }, []);
     const { name, imgURL, price, rating, description } = product;
     console.log(product);
+    const handleBuyNow = () => {
+        setOrderClass("row hide-row");
+        setProductClass("row show-row");
+    };
     return (
         <>
             <Header></Header>
             <main>
                 <div className="container">
-                    <div className="row">
+                    <div className={productClass}>
                         <div className="col-md-6 place-order-img">
                             <img src={imgURL} alt="" />
                         </div>
@@ -47,12 +53,12 @@ const ProductsDetails = () => {
                                 <span className="fw-bold">Availability:</span>{" "}
                                 <span className="text-primary">In stock!</span>
                             </div>
-                            <button className="btn btn-dark w-50 mt-3">
+                            <button onClick={handleBuyNow} className="btn btn-dark w-50 mt-3">
                                 <i className="fas fa-shopping-cart me-2"></i>Buy It Now
                             </button>
                         </div>
                     </div>
-                    <PlaceOrder product={product}></PlaceOrder>
+                    <PlaceOrder orderClass={orderClass} product={product}></PlaceOrder>
                     <div className="row">
                         <h4 className="ps-5 py-3 border-bottom mb-0 description-title">Product Description</h4>
                         <div className="px-5 py-4 mb-5" style={{ border: "1px solid #ddd" }}>

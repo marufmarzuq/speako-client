@@ -1,10 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import "./PlaceOrder.css";
 
-const PlaceOrder = ({ product }) => {
+const PlaceOrder = ({ product, orderClass }) => {
     const { name, imgURL, price, rating, description } = product;
+    const history = useHistory();
     const { user } = useAuth();
     const { displayName, email } = user;
     const {
@@ -12,11 +14,15 @@ const PlaceOrder = ({ product }) => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        console.log(data);
+        alert("Order placed successfully");
+        history.push("/products");
+    };
     console.log(errors);
     return (
-        <div className="row mb-5">
-            <div className="col-md-7">
+        <div className={orderClass}>
+            <div className="col-md-7 my-5">
                 <form className="place-order-form" onSubmit={handleSubmit(onSubmit)}>
                     <input
                         className="w-100"
@@ -53,7 +59,7 @@ const PlaceOrder = ({ product }) => {
                     <input value="Place Order" className="w-100 btn-dark btn" type="submit" />
                 </form>
             </div>
-            <div className="col-md-5 px-4">
+            <div className="col-md-5 px-4 my-5">
                 <div className="d-flex justify-content-between align-items-center">
                     <div>
                         <img

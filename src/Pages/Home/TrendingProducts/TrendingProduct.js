@@ -14,7 +14,7 @@ const TrendingProduct = ({ product }) => {
                         This content is a little bit longer.
                     </p>
                     <div className="d-flex justify-content-between">
-                        <Link className="btn btn-dark w-50" to={`/products/${_id}`}>
+                        <Link className="btn btn-dark" to={`/products/${_id}`}>
                             Product Details
                         </Link>
                         <div className="fw-bold fs-4">${price}</div>
