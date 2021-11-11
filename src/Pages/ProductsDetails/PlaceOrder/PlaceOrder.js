@@ -15,6 +15,21 @@ const PlaceOrder = ({ product, orderClass }) => {
         formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
+        data.productName = name;
+        data.productImg = imgURL;
+        data.price = price;
+        fetch("http://localhost:5000/orders", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+            });
+
         console.log(data);
         alert("Order placed successfully");
         history.push("/products");
