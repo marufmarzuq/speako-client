@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TrendingProduct = ({ product }) => {
-    const { description, name, rating, price, imgURL } = product;
+    const { description, name, rating, price, imgURL, _id } = product;
     return (
         <div className="col">
             <div className="card h-100">
@@ -14,8 +14,8 @@ const TrendingProduct = ({ product }) => {
                         This content is a little bit longer.
                     </p>
                     <div className="d-flex justify-content-between">
-                        <Link className="btn btn-dark w-50" to={`/products/${name}`}>
-                            <i className="fas fa-shopping-cart me-2"></i>Buy Now
+                        <Link className="btn btn-dark w-50" to={`/products/${_id}`}>
+                            Product Details
                         </Link>
                         <div className="fw-bold fs-4">${price}</div>
                     </div>

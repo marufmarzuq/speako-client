@@ -1,0 +1,24 @@
+.place-order-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.place-order-img img {
+    width: 80%;
+}
+.description-title {
+    background: #333;
+    color: white;
+    width: 305px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 30px;
+}
+.product-info {
+    padding: 20px 0;
+}
+
+.product-info div {
+    margin-bottom: 7px;
+    font-size: 18px;
+}

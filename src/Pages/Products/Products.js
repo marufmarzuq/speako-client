@@ -6,7 +6,7 @@ import TrendingProduct from "../Home/TrendingProducts/TrendingProduct";
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("./Products.json")
+        fetch("http://localhost:5000/products")
             .then((res) => res.json())
             .then((data) => setProducts(data));
     }, []);
@@ -18,7 +18,7 @@ const Products = () => {
                     <h2 className="text-center py-5 display-5 fw-bold">ALL SPEAKERS</h2>
                     <div className="row row-cols-1 row-cols-md-4 g-4">
                         {products.map((product) => (
-                            <TrendingProduct key={product.name} product={product}></TrendingProduct>
+                            <TrendingProduct key={product._id} product={product}></TrendingProduct>
                         ))}
                     </div>
                 </div>
