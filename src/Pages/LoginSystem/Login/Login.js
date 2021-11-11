@@ -1,18 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../../Shared/Footer/Footer";
 import Header from "../../../Shared/Header/Header";
 import { useForm } from "react-hook-form";
 import { Container } from "react-bootstrap";
 import "./Login.css";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
+    const [error, setError] = useState("");
+    const { signInUsingGoogle, setUser, loginWithEmailPassword, setIsLoading, auth } = useAuth();
+    const location = useLocation();
+    const history = useHistory();
+    const redirectURI = location.state?.from || "/";
+
+    const handleGoogleLogin = () => {
+        setIsLoading(true);
+        signInUsingGoogle()
+            .then((result) => {
+                setUser(result.user);
+                history.push(redirectURI);
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    };
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        // e.preventDefault();
+        setIsLoading(true);
+        const email = data.email;
+        const password = data.password;
+        loginWithEmailPassword(auth, email, password)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                history.push(redirectURI);
+                setError("");
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    };
     console.log(errors);
+
     return (
         <>
             <Header></Header>
@@ -25,15 +63,20 @@ const Login = () => {
                                     <input
                                         type="text"
                                         placeholder="Email"
-                                        {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+                                        {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
                                     />
-                                    <input type="password" placeholder="Password" {...register("Password", {})} />
-
+                                    <input type="password" placeholder="Password" {...register("password", {})} />
+                                    <p className="text-danger">{error}</p>
                                     <input type="submit" className="btn btn-dark w-100" value="Log In" />
                                 </form>
                                 <hr />
                                 <p className="text-center">or</p>
-                                <button className="btn btn-danger w-100">Log In with Gmail</button>
+                                <button onClick={handleGoogleLogin} className="btn btn-outline-dark w-100 py-2">
+                                    Log In with Gmail
+                                </button>
+                                <p className="pt-2 pb-5">
+                                    Don’t have an account yet? <Link to="/register">register</Link>
+                                </p>
                             </div>
                         </div>
                         <div className="col-md-6">
