@@ -33,7 +33,7 @@ const useFirebase = () => {
         setIsLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
-
+    const saveUser = (email, displayName) => {};
     const logOut = () => {
         setIsLoading(true);
         signOut(auth)

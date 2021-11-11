@@ -7,7 +7,6 @@ import Footer from "../../../Shared/Footer/Footer";
 import Header from "../../../Shared/Header/Header";
 
 const Register = () => {
-    const [name, setName] = useState("");
     const [error, setError] = useState("");
     const { createAccountWithEmailPassword, auth, setUser, updateProfile, logOut } = useAuth();
     const history = useHistory();
@@ -21,16 +20,37 @@ const Register = () => {
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
-        setName(data.name);
+        const name = data.name;
         if (password.length < 6) {
             setError("Password should be at least 6 characters long");
             return;
         }
         createAccountWithEmailPassword(auth, email, password)
             .then((result) => {
+                const setUserName = () => {
+                    updateProfile(auth.currentUser, {
+                        displayName: name,
+                    }).then((result) => {});
+                };
+                setUserName();
+                const saveUser = (displayName, email) => {
+                    const user = { displayName, email };
+                    fetch("http://localhost:5000/users", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(user),
+                    })
+                        .then((res) => res.json())
+                        .then((result) => {
+                            console.log(result);
+                        });
+                };
+                saveUser(name, email);
                 setError("");
                 setUser("");
-                setUserName();
+
                 logOut();
                 alert("Account created successfuly");
                 history.push("/");
@@ -40,11 +60,7 @@ const Register = () => {
                 setError(error.message);
             });
     };
-    const setUserName = () => {
-        updateProfile(auth.currentUser, {
-            displayName: name,
-        }).then((result) => {});
-    };
+
     return (
         <>
             <Header></Header>

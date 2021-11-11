@@ -30,7 +30,7 @@ const ProductsDetails = () => {
                         <div className="col-md-6 place-order-img">
                             <img src={imgURL} alt="" />
                         </div>
-                        <div className="col-md-6 product-info">
+                        <div className="col-md-6 product-info px-3">
                             <h2 className="display-6 fw-bold">{name}</h2>
                             <p>Rating</p>
                             <p>{description}</p>

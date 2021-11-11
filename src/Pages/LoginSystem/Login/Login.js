@@ -19,6 +19,21 @@ const Login = () => {
         signInUsingGoogle()
             .then((result) => {
                 setUser(result.user);
+                const saveUser = (displayName, email) => {
+                    const user = { displayName, email };
+                    fetch("http://localhost:5000/users", {
+                        method: "PUT",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify(user),
+                    })
+                        .then((res) => res.json())
+                        .then((result) => {
+                            console.log(result);
+                        });
+                };
+                saveUser(result.user.displayName, result.user.email);
                 history.push(redirectURI);
             })
             .catch((error) => {
