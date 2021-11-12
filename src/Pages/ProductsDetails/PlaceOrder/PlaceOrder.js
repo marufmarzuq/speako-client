@@ -18,6 +18,10 @@ const PlaceOrder = ({ product, orderClass }) => {
         data.productName = name;
         data.productImg = imgURL;
         data.price = price;
+        data.status = false;
+        const time = new Date().toLocaleString();
+        data.time = time;
+        console.log(data);
         fetch("http://localhost:5000/orders", {
             method: "POST",
             headers: {
@@ -83,7 +87,7 @@ const PlaceOrder = ({ product, orderClass }) => {
                             alt=""
                         />{" "}
                         <span>{name}</span>
-                        <span className="product-amount-badge">1</span>
+                        <span className="product-quantity-badge">1</span>
                     </div>
                     <span>${price}</span>
                 </div>

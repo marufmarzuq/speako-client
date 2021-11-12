@@ -1,24 +1,47 @@
 .top-bar {
     background-color: #212121;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    min-height: 50px;
+    z-index: 1000;
 }
 .dashboard-sidebar {
     position: fixed;
-    width: 200px;
+    width: 250px;
     background-color: #212121;
     height: 100%;
     top: 50px;
     left: 0;
+    color: white;
 }
 
 .dashboard-sidebar a {
     display: block;
     color: white;
-    background: #5252524d;
     text-decoration: none;
     padding: 15px 20px;
     margin-bottom: 5px;
+    transition: 0.3s;
+}
+.dashboard-sidebar a:hover {
+    background-color: rgb(54 54 54 / 40%);
 }
 .dashbord-body {
-    width: calc(100vw - 200px);
-    margin-left: 200px;
+    width: calc(100vw - 250px);
+    margin-left: 250px;
+}
+.user-img img {
+    width: 50px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.user-profile {
+    border-top: 1px solid #464646;
+    border-bottom: 1px solid #464646;
+    min-height: 72px;
+}
+.dashboard-sidebar {
+    overflow-y: auto;
 }

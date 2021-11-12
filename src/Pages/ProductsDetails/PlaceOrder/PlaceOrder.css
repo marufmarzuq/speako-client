@@ -6,7 +6,7 @@ form.place-order-form input {
 form.place-order-form input:focus {
     outline: 1px solid #666;
 }
-.product-amount-badge {
+.product-quantity-badge {
     display: inline-block;
     background-color: rgb(110, 110, 110);
     color: white;
