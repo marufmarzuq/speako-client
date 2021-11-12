@@ -1,3 +1,24 @@
 .top-bar {
-    background-color: #384aaa;
+    background-color: #212121;
+}
+.dashboard-sidebar {
+    position: fixed;
+    width: 200px;
+    background-color: #212121;
+    height: 100%;
+    top: 50px;
+    left: 0;
+}
+
+.dashboard-sidebar a {
+    display: block;
+    color: white;
+    background: #5252524d;
+    text-decoration: none;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+}
+.dashbord-body {
+    width: calc(100vw - 200px);
+    margin-left: 200px;
 }
