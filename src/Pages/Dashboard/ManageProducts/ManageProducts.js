@@ -12,7 +12,10 @@ const ManageProducts = () => {
     }, [control]);
     return (
         <div className="products-container">
-            <h3 className="text-center">Manage Products</h3>
+            <h3 className="text-center position-relative">
+                Manage Products
+                <span className="total-products">{products?.length && `Total products: ${products.length}`}</span>
+            </h3>
             <hr />
             <table>
                 {products?.length ? (

@@ -10,6 +10,7 @@ import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageProducts";
 import AddProduct from "./AddProduct/AddProduct";
+import DashboardHome from "./DashboardHome/DashboardHome";
 
 const Dashboard = () => {
     const [admin, setAdmin] = useState();
@@ -42,6 +43,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                     </div>
+                    <Link to={`${url}/`}>Dashboard</Link>
                     {admin ? (
                         <>
                             <Link to={`${url}/manage-orders`}>Manage Orders</Link>
@@ -63,6 +65,9 @@ const Dashboard = () => {
             </div>
             <div className="container-fluid dashbord-body px-4 py-4">
                 <Switch>
+                    <Route exact path={`${path}/`}>
+                        <DashboardHome></DashboardHome>
+                    </Route>
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>

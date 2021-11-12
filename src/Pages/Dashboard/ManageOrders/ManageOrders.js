@@ -12,7 +12,10 @@ const ManageOrders = () => {
     }, [control]);
     return (
         <div className="orders-container">
-            <h3 className="text-center">Manage Orders</h3>
+            <h3 className="text-center position-relative">
+                Manage Orders
+                <span className="total-products">{orders?.length && `Total orders: ${orders.length}`}</span>
+            </h3>
             <hr />
             <table>
                 {orders?.length ? (
