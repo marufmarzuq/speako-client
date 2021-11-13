@@ -1,8 +1,8 @@
 import React from "react";
+import Rating from "react-rating";
 
 const ManageSingleProduct = ({ product, setControl }) => {
     const { name, price, rating, imgURL, _id, description } = product;
-    console.log(product);
 
     const handleDeleteProduct = () => {
         const confirmMessage = "Are you sure, you want to delete the product?";
@@ -26,16 +26,18 @@ const ManageSingleProduct = ({ product, setControl }) => {
             <td style={{ width: "100px" }}>
                 <img style={{ width: "100px", height: "70px", objectFit: "cover" }} src={imgURL} alt="" />
             </td>
-            <td style={{ width: "200px" }}>
-                <div>{name}</div>
+            <td style={{ width: "150px" }}>{name}</td>
+            <td style={{ width: "50px" }}>${price}</td>
+            <td style={{ width: "150px" }}>
+                <Rating
+                    className="text-center review-rating"
+                    readonly
+                    initialRating={rating}
+                    emptySymbol="far fa-star"
+                    fullSymbol="fas fa-star"
+                />
             </td>
-            <td style={{ width: "50px" }}>
-                <div>${price}</div>
-            </td>
-            <td style={{ width: "200px" }}>
-                <div>{rating}</div>
-            </td>
-            <td style={{ width: "300px" }}>
+            <td style={{ width: "400px" }}>
                 <div>{description}</div>
             </td>
             <td style={{ width: "150px" }}>

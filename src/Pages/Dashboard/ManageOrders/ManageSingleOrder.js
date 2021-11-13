@@ -2,7 +2,6 @@ import React from "react";
 
 const ManageSingleOrder = ({ order, setControl }) => {
     const { productName, _id, status, productImg, price, time, address } = order;
-    console.log(order);
     const handleUpdateBooking = (id) => {
         order.status = true;
         fetch(`http://localhost:5000/orders/${_id}`, {
@@ -45,16 +44,16 @@ const ManageSingleOrder = ({ order, setControl }) => {
             <td style={{ width: "100px" }}>
                 <img style={{ width: "100px", height: "70px", objectFit: "cover" }} src={productImg} alt="" />
             </td>
-            <td style={{ width: "200px" }}>
+            <td style={{ width: "180px" }}>
                 <div>{productName}</div>
             </td>
-            <td style={{ width: "50px" }}>
+            <td style={{ width: "30px", paddingRight: "20px" }}>
                 <div>${price}</div>
             </td>
             <td style={{ width: "100px" }}>
                 <div>{time}</div>
             </td>
-            <td style={{ width: "180px" }}>
+            <td style={{ width: "250px" }}>
                 <div>{address}</div>
             </td>
             <td style={{ width: "150px" }}>

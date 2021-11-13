@@ -7,13 +7,13 @@ const TrendingProducts = () => {
     useEffect(() => {
         fetch("http://localhost:5000/products")
             .then((res) => res.json())
-            .then((data) => setProducts(data.slice(0, 6)));
+            .then((data) => setProducts(data.slice(0, 4)));
     }, []);
     return (
         <section>
             <div className="container my-5">
                 <h2 className="text-center py-5 display-6 fw-bold">TRENDING SPEAKERS</h2>
-                <div className="row row-cols-1 row-cols-md-3 g-4">
+                <div className="row row-cols-1 row-cols-md-4 g-4">
                     {products.map((product) => (
                         <TrendingProduct key={product._id} product={product}></TrendingProduct>
                     ))}

@@ -6,6 +6,7 @@ import Review from "./Review/Review";
 import Myorders from "./Myorders/Myorders";
 import Pay from "./Pay/Pay";
 import useAuth from "../../hooks/useAuth";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageProducts";
@@ -14,6 +15,9 @@ import DashboardHome from "./DashboardHome/DashboardHome";
 
 const Dashboard = () => {
     const [admin, setAdmin] = useState();
+    const { width } = useWindowDimensions();
+    const [sidebarStyle, setSidebarStyle] = useState("");
+    const [sidbarStatus, setSidebarStatus] = useState(true);
     let { path, url } = useRouteMatch();
     const { user, logOut } = useAuth();
     const { displayName, photoURL } = user;
@@ -23,15 +27,45 @@ const Dashboard = () => {
             .then((res) => res.json())
             .then((data) => setAdmin(data.admin));
     }, [user.email]);
-    console.log(admin);
+
+    useEffect(() => {
+        if (width > 0) {
+            setSidebarStyle("0px");
+            setSidebarStatus(true);
+        }
+    }, [width]);
+
+    const controlSideName = (e) => {
+        if (sidbarStatus) {
+            setSidebarStyle("-250px");
+            setSidebarStatus(false);
+        } else {
+            setSidebarStyle("0px");
+            setSidebarStatus(true);
+        }
+    };
+    const sidebar = {
+        marginLeft: `${sidebarStyle}`,
+    };
+
+    document.onclick = function (h) {
+        if (h.target.id !== "toggle" && h.target.id !== "d-sidebar" && h.target.id !== "topbar" && width < 1101) {
+            setSidebarStyle("-250px");
+            setSidebarStatus(false);
+        }
+    };
     return (
         <>
-            <div className="top-bar">
-                <Link to="/">
+            <div id="topbar" className="top-bar d-flex justify-content-between align-items-center">
+                <div>
+                    <i id="toggle" onClick={controlSideName} class="fas fa-bars text-white nav-toggle-btn"></i>
+                </div>
+                <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+                    Back to Home
                     <img style={{ width: "40px", margin: "5px 15px" }} src={logo} alt="" />
                 </Link>
             </div>
-            <div className="dashboard-sidebar">
+            <div id="d-sidebar" style={sidebar} className="dashboard-sidebar">
                 <div>
                     <div className="mb-2">
                         <div className="user-profile">

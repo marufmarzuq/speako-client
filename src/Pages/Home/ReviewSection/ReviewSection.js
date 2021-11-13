@@ -12,7 +12,7 @@ const ReviewSection = () => {
     return (
         <div className="container my-5">
             <h2 className="text-center py-5 display-6 fw-bold">CUSTOMERS REVIEWS</h2>
-            <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
                 {reviews.map((reviewCard) => (
                     <SingleReview key={reviewCard._id} reviewCard={reviewCard}></SingleReview>
                 ))}

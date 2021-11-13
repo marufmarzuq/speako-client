@@ -5,7 +5,7 @@ const SingleReview = ({ reviewCard }) => {
     const { photoURL, name, review, rating } = reviewCard;
     return (
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 p-2">
                 <div class="card-body">
                     <p class="card-text short-review">{review}</p>
                     <Rating
