@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Rating from "react-rating";
 import { useParams } from "react-router";
 import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
@@ -32,7 +33,13 @@ const ProductsDetails = () => {
                         </div>
                         <div className="col-md-6 product-info px-3">
                             <h2 className="display-6 fw-bold">{name}</h2>
-                            <p>Rating</p>
+                            <Rating
+                                className="review-rating"
+                                readonly
+                                initialRating={rating}
+                                emptySymbol="far fa-star"
+                                fullSymbol="fas fa-star"
+                            />
                             <p>{description}</p>
                             <div>
                                 <span className="fw-bold">Price:</span> ${price}

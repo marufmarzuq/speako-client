@@ -18,6 +18,7 @@ const Review = () => {
         formState: { errors },
     } = useForm();
     const onSubmit = (data) => {
+        data.photoURL = user.photoURL;
         if (rating) {
             data.rating = rating;
             setError("");
@@ -63,7 +64,6 @@ const Review = () => {
                     />
                     <Rating
                         className="review-rating"
-                        //  initialRating={3}
                         onClick={handleRating}
                         emptySymbol="far fa-star"
                         fullSymbol="fas fa-star"

@@ -7,7 +7,7 @@ import "./AddProduct";
 const AddProduct = () => {
     const [rating, setRating] = useState(0);
     const [error, setError] = useState("");
-    const [image, setImage] = useState("");
+    const [message, setMessage] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -32,10 +32,9 @@ const AddProduct = () => {
             body: data,
         });
         const file = await res.json();
-
-        setImage(file.secure_url);
         setImageUrl(file.secure_url);
         setLoading(false);
+        setMessage("Image uploded successfully");
     };
 
     const onSubmit = (data) => {
@@ -61,6 +60,7 @@ const AddProduct = () => {
             });
 
         alert("Product added successfully");
+        setMessage("");
         reset();
     };
     console.log(errors);
@@ -68,6 +68,7 @@ const AddProduct = () => {
     return (
         <div>
             <div className="form-container">
+                <h3 className="text-center position-relative mb-4">Add Product</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input type="text" placeholder="name" {...register("name", { required: true, maxLength: 80 })} />
                     <input type="number" placeholder="price" {...register("price", {})} />
@@ -80,17 +81,14 @@ const AddProduct = () => {
                             fullSymbol="fas fa-star"
                         />
                         <input
+                            style={{ padding: "5px 0" }}
                             className="upload-img"
                             type="file"
                             name="file"
                             placeholder="Upload an image"
                             onChange={uploadImage}
                         />
-                        {loading ? (
-                            <Spinner animation="border" />
-                        ) : (
-                            <img src={image} style={{ width: "50px", height: "50px", objectFit: "cover" }} />
-                        )}
+                        {loading ? <Spinner animation="border" /> : <p>{message}</p>}
                     </div>
                     <textarea {...register("description", {})} />
                     <p className="text-danger">{error}</p>

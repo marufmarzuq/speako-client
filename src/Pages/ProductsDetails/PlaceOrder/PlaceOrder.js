@@ -17,7 +17,7 @@ const PlaceOrder = ({ product, orderClass }) => {
     const onSubmit = (data) => {
         data.productName = name;
         data.productImg = imgURL;
-        data.price = price;
+        data.price = parseInt(price) + 20;
         data.status = false;
         const time = new Date().toLocaleString();
         data.time = time;
@@ -103,7 +103,7 @@ const PlaceOrder = ({ product, orderClass }) => {
                 <hr />
                 <div className="d-flex justify-content-between align-items-center">
                     <span>Total</span>
-                    <span>${price + 20}</span>
+                    <span>${parseInt(price) + 20}</span>
                 </div>
             </div>
         </div>
