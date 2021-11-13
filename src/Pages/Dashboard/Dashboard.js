@@ -12,6 +12,7 @@ import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageProducts";
 import AddProduct from "./AddProduct/AddProduct";
 import DashboardHome from "./DashboardHome/DashboardHome";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 const Dashboard = () => {
     const [admin, setAdmin] = useState();
@@ -111,18 +112,18 @@ const Dashboard = () => {
                     <Route path={`${path}/review`}>
                         <Review></Review>
                     </Route>
-                    <Route path={`${path}/make-admin`}>
+                    <AdminRoute path={`${path}/make-admin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route path={`${path}/manage-orders`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders></ManageOrders>
-                    </Route>
-                    <Route path={`${path}/manage-products`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manage-products`}>
                         <ManageProducts></ManageProducts>
-                    </Route>
-                    <Route path={`${path}/add-product`}>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/add-product`}>
                         <AddProduct></AddProduct>
-                    </Route>
+                    </AdminRoute>
                 </Switch>
             </div>
         </>
