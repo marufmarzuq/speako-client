@@ -23,7 +23,7 @@ const Dashboard = () => {
     const { displayName, photoURL } = user;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://gentle-forest-53652.herokuapp.com/users/${user.email}`)
             .then((res) => res.json())
             .then((data) => setAdmin(data.admin));
     }, [user.email]);
@@ -58,7 +58,7 @@ const Dashboard = () => {
         <>
             <div id="topbar" className="top-bar d-flex justify-content-between align-items-center">
                 <div>
-                    <i id="toggle" onClick={controlSideName} class="fas fa-bars text-white nav-toggle-btn"></i>
+                    <i id="toggle" onClick={controlSideName} className="fas fa-bars text-white nav-toggle-btn"></i>
                 </div>
                 <Link to="/" style={{ color: "white", textDecoration: "none" }}>
                     Back to Home

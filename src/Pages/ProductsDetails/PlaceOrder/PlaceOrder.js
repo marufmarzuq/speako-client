@@ -22,7 +22,7 @@ const PlaceOrder = ({ product, orderClass }) => {
         const time = new Date().toLocaleString();
         data.time = time;
         console.log(data);
-        fetch("http://localhost:5000/orders", {
+        fetch("https://gentle-forest-53652.herokuapp.com/orders", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

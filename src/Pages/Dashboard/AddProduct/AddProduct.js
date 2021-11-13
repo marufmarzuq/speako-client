@@ -47,7 +47,7 @@ const AddProduct = () => {
             setError("Please select the rating you prefer");
             return;
         }
-        fetch("http://localhost:5000/products", {
+        fetch("https://gentle-forest-53652.herokuapp.com/products", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

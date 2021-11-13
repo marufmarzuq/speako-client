@@ -8,7 +8,7 @@ const ManageSingleProduct = ({ product, setControl }) => {
         const confirmMessage = "Are you sure, you want to delete the product?";
         if (window.confirm(confirmMessage)) {
             //eslint-disable-line
-            fetch(`http://localhost:5000/products/${_id}`, {
+            fetch(`https://gentle-forest-53652.herokuapp.com/products/${_id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

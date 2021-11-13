@@ -28,7 +28,7 @@ const Review = () => {
             return;
         }
 
-        fetch("http://localhost:5000/reviews", {
+        fetch("https://gentle-forest-53652.herokuapp.com/reviews", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -21,7 +21,7 @@ const Login = () => {
                 setUser(result.user);
                 const saveUser = (displayName, email) => {
                     const user = { displayName, email };
-                    fetch("http://localhost:5000/users", {
+                    fetch("https://gentle-forest-53652.herokuapp.com/users", {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json",

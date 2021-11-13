@@ -6,7 +6,7 @@ const ManageOrders = () => {
     const [orders, setOrders] = useState();
     const [control, setControl] = useState(false);
     useEffect(() => {
-        fetch("http://localhost:5000/orders")
+        fetch("https://gentle-forest-53652.herokuapp.com/orders")
             .then((res) => res.json())
             .then((result) => setOrders(result));
     }, [control]);

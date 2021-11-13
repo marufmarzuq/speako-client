@@ -12,7 +12,7 @@ const ProductsDetails = () => {
     const [orderClass, setProductClass] = useState("row hide-row");
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://gentle-forest-53652.herokuapp.com/products/${id}`)
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, []);
@@ -65,7 +65,7 @@ const ProductsDetails = () => {
                             </button>
                         </div>
                     </div>
-                    <PlaceOrder orderClass={orderClass} product={product}></PlaceOrder>
+                    <PlaceOrder orderclassName={orderClass} product={product}></PlaceOrder>
                     <div className="row">
                         <h4 className="ps-5 py-3 border-bottom mb-0 description-title">Product Description</h4>
                         <div className="px-5 py-4 mb-5" style={{ border: "1px solid #ddd" }}>

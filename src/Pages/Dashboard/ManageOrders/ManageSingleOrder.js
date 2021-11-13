@@ -4,7 +4,7 @@ const ManageSingleOrder = ({ order, setControl }) => {
     const { productName, _id, status, productImg, price, time, address } = order;
     const handleUpdateBooking = (id) => {
         order.status = true;
-        fetch(`http://localhost:5000/orders/${_id}`, {
+        fetch(`https://gentle-forest-53652.herokuapp.com/orders/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -25,7 +25,7 @@ const ManageSingleOrder = ({ order, setControl }) => {
         const confirmMessage = "Are you sure, you want to cancel the order?";
         if (window.confirm(confirmMessage)) {
             //eslint-disable-line
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://gentle-forest-53652.herokuapp.com/orders/${_id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
@@ -61,7 +61,7 @@ const ManageSingleOrder = ({ order, setControl }) => {
                     <div className="booking-status d-inline-block text-success">shipping</div>
                 ) : (
                     <button className="btn btn-dark w-100" onClick={() => handleUpdateBooking(_id)}>
-                        <i class="far fa-check-circle"></i> Ship Product
+                        <i className="far fa-check-circle"></i> Ship Product
                     </button>
                 )}
             </td>
