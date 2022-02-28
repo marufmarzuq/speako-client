@@ -10,6 +10,7 @@ const AddProduct = () => {
     const [message, setMessage] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [loading, setLoading] = useState(false);
+    const [data, setData] = useState({});
 
     const handleRating = (value) => {
         setRating(value);
@@ -47,7 +48,7 @@ const AddProduct = () => {
             setError("Please select the rating you prefer");
             return;
         }
-        fetch("https://gentle-forest-53652.herokuapp.com/products", {
+        /*         fetch("https://gentle-forest-53652.herokuapp.com/products", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -57,8 +58,9 @@ const AddProduct = () => {
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
-            });
-
+            }); */
+        setData(data);
+        console.log(data);
         alert("Product added successfully");
         setMessage("");
         reset();
@@ -94,6 +96,7 @@ const AddProduct = () => {
                     <p className="text-danger">{error}</p>
                     <input value="Add Products" type="submit" />
                 </form>
+                <div>{data.description}</div>
             </div>
         </div>
     );

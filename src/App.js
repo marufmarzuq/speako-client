@@ -33,9 +33,9 @@ function App() {
                         <PrivateRoute exact path="/products/:id">
                             <ProductsDetails></ProductsDetails>
                         </PrivateRoute>
-                        <Route path="/dashboard">
+                        <PrivateRoute path="/dashboard">
                             <Dashboard></Dashboard>
-                        </Route>
+                        </PrivateRoute>
                     </Switch>
                 </BrowserRouter>
             </AuthProvider>

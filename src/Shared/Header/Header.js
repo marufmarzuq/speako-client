@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import "./Header.css";
+import { HiLogout } from "react-icons/hi";
+import { HiLogin } from "react-icons/hi";
 
 const Header = () => {
     const { user, logOut } = useAuth();
+    const [darkHeader, setDarkHeader] = useState(false);
+    document.onscroll = () => {
+        if (window.scrollY > 400) {
+            setDarkHeader(true);
+        } else {
+            setDarkHeader(false);
+        }
+        console.log(window.scrollY > 400);
+    };
     return (
-        <header>
-            <Navbar collapseOnSelect expand="lg" sticky="top" bg="light" variant="light">
+        <header className={darkHeader ? "dark-header" : "header"}>
+            <Navbar collapseOnSelect expand="lg" sticky="top" variant={darkHeader ? "dark" : "light"}>
                 <Container>
                     <Navbar.Brand as={Link} to="/">
                         SPEAKO
@@ -19,26 +30,19 @@ const Header = () => {
                             <Nav.Link as={Link} to="/products">
                                 Products
                             </Nav.Link>
-                            {user.email && (
-                                <Nav.Link className="me-2" as={Link} to="/dashboard">
-                                    Dashboard
-                                </Nav.Link>
-                            )}
-                            <Nav.Link
-                                style={{ pointerEvents: "none", fontWeight: "600" }}
-                                className="me-2"
-                                as={Link}
-                                to="/"
-                            >
-                                {user.displayName}
+                            <Nav.Link className="me-2" as={Link} to="/dashboard">
+                                Dashboard
                             </Nav.Link>
                             {user.email ? (
                                 <Nav.Link onClick={logOut} className="login-btn" as={Link} to="/login">
-                                    Log Out
+                                    <HiLogout />
+
+                                    <span>Log Out</span>
                                 </Nav.Link>
                             ) : (
                                 <Nav.Link className="login-btn" as={Link} to="/login">
-                                    Login
+                                    <HiLogin />
+                                    <span>Login</span>
                                 </Nav.Link>
                             )}
                         </Nav>

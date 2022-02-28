@@ -13,7 +13,7 @@ const Home = () => {
             <Header></Header>
             <main>
                 <Cover></Cover>
-                <img src={coverBottom} alt="" />
+                <img src={coverBottom} alt="" style={{ maxHeight: "160px", width: "100%" }} />
                 <TrendingProducts></TrendingProducts>
                 <Feature></Feature>
                 <div className="home-full-img"></div>

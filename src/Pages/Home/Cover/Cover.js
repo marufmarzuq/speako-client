@@ -5,7 +5,7 @@ const Cover = () => {
     return (
         <section style={{ backgroundColor: "rgb(243 243 243)" }}>
             <div className="container">
-                <div className="row" style={{ minHeight: "calc(100vh - 100px)" }}>
+                <div className="row">
                     <div className="col-md-6 py-5 d-flex align-items-center">
                         <img className="w-100" src="https://i.ibb.co/TwJJfh2/cover.jpg" alt="" />
                     </div>
