@@ -30,13 +30,15 @@ const Header = () => {
                             <Nav.Link as={Link} to="/products">
                                 Products
                             </Nav.Link>
+                            <Nav.Link as={Link} to="/blogs">
+                                Blogs
+                            </Nav.Link>
                             <Nav.Link className="me-2" as={Link} to="/dashboard">
                                 Dashboard
                             </Nav.Link>
                             {user.email ? (
                                 <Nav.Link onClick={logOut} className="login-btn" as={Link} to="/login">
                                     <HiLogout />
-
                                     <span>Log Out</span>
                                 </Nav.Link>
                             ) : (

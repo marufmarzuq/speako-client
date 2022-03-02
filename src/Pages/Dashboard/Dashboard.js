@@ -19,6 +19,9 @@ import { RiBankCardFill } from "react-icons/ri";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { MdOutlineRateReview } from "react-icons/md";
+import { RiSpeakerFill } from "react-icons/ri";
+import { MdAddBusiness } from "react-icons/md";
+import { RiAdminFill } from "react-icons/ri";
 
 const Dashboard = () => {
     const [admin, setAdmin] = useState();
@@ -72,10 +75,22 @@ const Dashboard = () => {
                             </Link>
                             {admin ? (
                                 <>
-                                    <Link to={`${url}/manage-orders`}>Manage Orders</Link>
-                                    <Link to={`${url}/manage-products`}>Mange Products</Link>
-                                    <Link to={`${url}/add-product`}>Add Products</Link>
-                                    <Link to={`${url}/make-admin`}>Make Admin</Link>
+                                    <Link to={`${url}/manage-orders`}>
+                                        <RiShoppingCartFill />
+                                        <span>Manage Orders</span>
+                                    </Link>
+                                    <Link to={`${url}/manage-products`}>
+                                        <RiSpeakerFill />
+                                        <span>Manage Products</span>
+                                    </Link>
+                                    <Link to={`${url}/add-product`}>
+                                        <MdAddBusiness />
+                                        <span>Add Products</span>
+                                    </Link>
+                                    <Link to={`${url}/make-admin`}>
+                                        <RiAdminFill />
+                                        <span>Make Admin</span>
+                                    </Link>
                                 </>
                             ) : (
                                 <>

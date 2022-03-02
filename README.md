@@ -2,8 +2,6 @@
 
 This web app is one of my assignment on a Niche website. This is my second full-stack websit. On this website I have used `React`, `firebase`, `react router`, `node`, `express`, `mongodb` etc.
 
-Here is the live site link: https://react-speako.web.app
-
 On this Website :
 
 -   You can access only homepage without login yourself

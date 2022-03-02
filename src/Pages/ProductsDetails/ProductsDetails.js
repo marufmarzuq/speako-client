@@ -57,7 +57,7 @@ const ProductsDetails = () => {
                                 <span className="fw-bold">Type:</span> Multimedia Speaker
                             </div>
                             <div>
-                                <span className="fw-bold">Availability:</span>{" "}
+                                <span className="fw-bold">Availability:</span>
                                 <span className="text-primary">In stock!</span>
                             </div>
                             <button onClick={handleBuyNow} className="btn btn-dark w-50 mt-3">
