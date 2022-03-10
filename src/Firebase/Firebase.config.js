@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyBR0pP3xcQYEFFGWA9VRdizmpmsRO4ivH4",
-    authDomain: "react-speako.firebaseapp.com",
-    projectId: "react-speako",
-    storageBucket: "react-speako.appspot.com",
-    messagingSenderId: "372101925733",
-    appId: "1:372101925733:web:ca701cc52ef9284bb3af8c",
+    apiKey: "AIzaSyDPHfFUKqoJ8W_MloIh4ShlsFOouSoIMuY",
+    authDomain: "speakooo.firebaseapp.com",
+    projectId: "speakooo",
+    storageBucket: "speakooo.appspot.com",
+    messagingSenderId: "832293301152",
+    appId: "1:832293301152:web:f276d12db30855911a92c5",
 };
 
 export default firebaseConfig;

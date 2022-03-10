@@ -65,7 +65,7 @@ const ProductsDetails = () => {
                             </button>
                         </div>
                     </div>
-                    <PlaceOrder orderclassName={orderClass} product={product}></PlaceOrder>
+                    {/* <PlaceOrder orderclassName={orderClass} product={product}></PlaceOrder> */}
                     <div className="row">
                         <h4 className="ps-5 py-3 border-bottom mb-0 description-title">Product Description</h4>
                         <div className="px-5 py-4 mb-5" style={{ border: "1px solid #ddd" }}>

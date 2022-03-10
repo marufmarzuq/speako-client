@@ -15,7 +15,6 @@ const Header = () => {
         } else {
             setDarkHeader(false);
         }
-        console.log(window.scrollY > 400);
     };
     return (
         <header className={darkHeader ? "dark-header" : "header"}>

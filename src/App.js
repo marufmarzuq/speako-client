@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
 import ScrollToTop from "./Shared/ScrollToTop";
 import Home from "./Pages/Home/Home";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
@@ -12,6 +12,14 @@ import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import ProductsDetails from "./Pages/ProductsDetails/ProductsDetails";
 
 function App() {
+    const [appReloading, setAppReloading] = useState(true);
+    useEffect(() => {
+        setTimeout(() => setAppReloading(false), 3000);
+    }, []);
+    console.log(appReloading);
+    if (appReloading) {
+        return <div class="loading" data-loading-text="SPEAKO"></div>;
+    }
     return (
         <div className="App">
             <AuthProvider>
@@ -30,9 +38,9 @@ function App() {
                         <Route exact path="/products">
                             <Products></Products>
                         </Route>
-                        <PrivateRoute exact path="/products/:id">
+                        <Route exact path="/products/:id">
                             <ProductsDetails></ProductsDetails>
-                        </PrivateRoute>
+                        </Route>
                         <PrivateRoute path="/dashboard">
                             <Dashboard></Dashboard>
                         </PrivateRoute>

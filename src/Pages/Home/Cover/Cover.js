@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import VideoModal from "../videoModal/VideoModal";
 import "./Cover.css";
+import { BiPlay } from "react-icons/bi";
 
 const Cover = () => {
+    const [videoModalOpen, setVideoModalOpen] = useState(false);
     return (
         <section style={{ backgroundColor: "rgb(243 243 243)" }}>
             <div className="container">
@@ -18,14 +21,16 @@ const Cover = () => {
                             </p>
                             <div className="btn-container">
                                 <button className="cover-btn">Learn More</button>
-                                <button className="cover-btn">
-                                    <i className="far fa-play-circle"></i> Watch Video
+                                <button className="cover-btn" onClick={() => setVideoModalOpen(true)}>
+                                    <BiPlay />
+                                    <span>Watch Video</span>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {videoModalOpen && <VideoModal setVideoModalOpen={setVideoModalOpen} />}
         </section>
     );
 };
