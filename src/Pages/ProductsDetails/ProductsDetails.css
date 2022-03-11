@@ -22,9 +22,29 @@
     margin-bottom: 7px;
     font-size: 18px;
 }
-.hide-row {
-    display: none;
-}
-.show-row {
+
+.order-review-quantity-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.order-review-quantity-container input {
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    text-align: center;
+}
+.order-review-quantity-container input:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
 }

@@ -3,31 +3,28 @@ import Rating from "react-rating";
 import { useParams } from "react-router";
 import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
-import PlaceOrder from "./PlaceOrder/PlaceOrder";
 import "./ProductsDetails.css";
+import starFill from "../../images/star-fill.png";
+import starEmpty from "../../images/star-empty.png";
+import { Link } from "react-router-dom";
+import { AiOutlineCaretLeft } from "react-icons/ai";
+import { AiOutlineCaretRight } from "react-icons/ai";
 
 const ProductsDetails = () => {
     const { id } = useParams("id");
-    const [productClass, setOrderClass] = useState("row");
-    const [orderClass, setProductClass] = useState("row hide-row");
     const [product, setProduct] = useState([]);
     useEffect(() => {
         fetch(`https://gentle-forest-53652.herokuapp.com/products/${id}`)
             .then((res) => res.json())
             .then((data) => setProduct(data));
     }, []);
-    const { name, imgURL, price, rating, description } = product;
-    console.log(product);
-    const handleBuyNow = () => {
-        setOrderClass("row hide-row");
-        setProductClass("row show-row");
-    };
+    const { name, imgURL, price, rating, description, _id } = product;
     return (
         <>
             <Header></Header>
             <main>
                 <div className="container">
-                    <div className={productClass}>
+                    <div className="row">
                         <div className="col-md-6 place-order-img">
                             <img src={imgURL} alt="" />
                         </div>
@@ -37,8 +34,8 @@ const ProductsDetails = () => {
                                 className="review-rating"
                                 readonly
                                 initialRating={rating}
-                                emptySymbol="far fa-star"
-                                fullSymbol="fas fa-star"
+                                emptySymbol={<img src={starEmpty} className="star-icon" />}
+                                fullSymbol={<img src={starFill} className="star-icon" />}
                             />
                             <p>{description}</p>
                             <div>
@@ -57,15 +54,21 @@ const ProductsDetails = () => {
                                 <span className="fw-bold">Type:</span> Multimedia Speaker
                             </div>
                             <div>
-                                <span className="fw-bold">Availability:</span>
+                                <span className="fw-bold">Availability: </span>
                                 <span className="text-primary">In stock!</span>
                             </div>
-                            <button onClick={handleBuyNow} className="btn btn-dark w-50 mt-3">
-                                <i className="fas fa-shopping-cart me-2"></i>Buy It Now
-                            </button>
+                            <div className="order-review-quantity-container w-50">
+                                <AiOutlineCaretLeft />
+                                <input type="number" min={1} max={20} defaultValue={1} />
+                                <AiOutlineCaretRight />
+                            </div>
+                            <Link to={`/place-order/${_id}`}>
+                                <button className="btn btn-dark w-50 mt-3">
+                                    <i className="fas fa-shopping-cart me-2"></i>Buy It Now
+                                </button>
+                            </Link>
                         </div>
                     </div>
-                    {/* <PlaceOrder orderclassName={orderClass} product={product}></PlaceOrder> */}
                     <div className="row">
                         <h4 className="ps-5 py-3 border-bottom mb-0 description-title">Product Description</h4>
                         <div className="px-5 py-4 mb-5" style={{ border: "1px solid #ddd" }}>

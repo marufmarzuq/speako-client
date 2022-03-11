@@ -10,6 +10,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Register from "./Pages/LoginSystem/Register/Register";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import ProductsDetails from "./Pages/ProductsDetails/ProductsDetails";
+import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 
 function App() {
     const [appReloading, setAppReloading] = useState(true);
@@ -41,6 +42,9 @@ function App() {
                         <Route exact path="/products/:id">
                             <ProductsDetails></ProductsDetails>
                         </Route>
+                        <PrivateRoute exact path="/place-order/:id">
+                            <PlaceOrder></PlaceOrder>
+                        </PrivateRoute>
                         <PrivateRoute path="/dashboard">
                             <Dashboard></Dashboard>
                         </PrivateRoute>
