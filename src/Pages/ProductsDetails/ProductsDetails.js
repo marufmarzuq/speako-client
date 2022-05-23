@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
 import "./ProductsDetails.css";
@@ -11,14 +11,34 @@ import { AiOutlineCaretLeft } from "react-icons/ai";
 import { AiOutlineCaretRight } from "react-icons/ai";
 
 const ProductsDetails = () => {
+  const history = useHistory();
   const { id } = useParams("id");
   const [product, setProduct] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const [quantityError, setQuantityError] = useState("");
   useEffect(() => {
     fetch(`https://gentle-forest-53652.herokuapp.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
   const { name, imgURL, price, rating, description, _id } = product;
+  const handleProductQuantity = (type) => {
+    if (type === "left" && quantity >= 1) {
+      setQuantity(quantity - 1);
+    } else if (type === "right") {
+      setQuantity(quantity + 1);
+    }
+  };
+  const handleBuyNow = () => {
+    if (quantity > 0 && quantity <= 100) {
+      setQuantityError("");
+      history.push(`/place-order/${_id}/${quantity}`);
+    } else if (quantity < 1) {
+      setQuantityError("Please ensure that quantity is not less than 1!");
+    } else {
+      setQuantityError("Please ensure that quantity is not greater than 100!");
+    }
+  };
   return (
     <>
       <Header></Header>
@@ -62,15 +82,25 @@ const ProductsDetails = () => {
                 <span className="text-primary">In stock!</span>
               </div>
               <div className="order-review-quantity-container w-50">
-                <AiOutlineCaretLeft />
-                <input type="number" min={1} max={20} defaultValue={1} />
-                <AiOutlineCaretRight />
+                <AiOutlineCaretLeft
+                  onClick={() => handleProductQuantity("left")}
+                />
+                <input
+                  type="number"
+                  min={1}
+                  max={20}
+                  onChange={(e) => setQuantity(Number(e.target.value))}
+                  value={quantity}
+                />
+                <AiOutlineCaretRight
+                  onClick={() => handleProductQuantity("right")}
+                />
               </div>
-              <Link to={`/place-order/${_id}`}>
-                <button className="btn btn-dark w-50 mt-3">
-                  <i className="fas fa-shopping-cart me-2"></i>Buy It Now
-                </button>
-              </Link>
+              <button className="btn btn-dark w-50 mt-3" onClick={handleBuyNow}>
+                <i className="fas fa-shopping-cart me-2"></i>
+                <span>Buy It Now</span>
+              </button>
+              <div className="product-qnt-error">{quantityError}</div>
             </div>
           </div>
           <div className="row">
