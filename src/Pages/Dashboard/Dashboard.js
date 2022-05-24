@@ -73,7 +73,7 @@ const Dashboard = () => {
                   <img src={photoURL} alt="" />
                 </div>
                 <div className="user-profile-text">
-                  <p>Hello! Good Moring!</p>
+                  <p>Hello! Good Morning!</p>
                   <div>{displayName}</div>
                 </div>
               </div>
