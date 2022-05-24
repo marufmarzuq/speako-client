@@ -30,7 +30,8 @@ const PlaceOrder = () => {
     data.price = parseInt(price) + 20;
     data.quantity = quantity;
     data.total = parseInt(price) * quantity + 20;
-    data.status = false;
+    data.paymentStatus = "Not Paid";
+    data.deliveryStatus = "Pending";
     const time = new Date().toLocaleString();
     data.time = time;
     console.log(data);
