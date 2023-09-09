@@ -11,7 +11,7 @@ const PlaceOrder = () => {
   const { id, quantity } = useParams();
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    fetch(`https://gentle-forest-53652.herokuapp.com/products/${id}`)
+    fetch(`https://speako-server.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);
@@ -35,7 +35,7 @@ const PlaceOrder = () => {
     const time = new Date().toLocaleString();
     data.time = time;
     console.log(data);
-    fetch("https://gentle-forest-53652.herokuapp.com/orders", {
+    fetch("https://speako-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

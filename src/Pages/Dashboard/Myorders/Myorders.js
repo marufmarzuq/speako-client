@@ -11,7 +11,7 @@ const Myorders = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch(`https://gentle-forest-53652.herokuapp.com/orders/${user.email}`)
+    fetch(`https://speako-server.vercel.app/orders/${user.email}`)
       .then((res) => res.json())
       .then((result) => {
         setMyOrders(result);

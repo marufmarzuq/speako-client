@@ -17,7 +17,7 @@ const ProductsDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [quantityError, setQuantityError] = useState("");
   useEffect(() => {
-    fetch(`https://gentle-forest-53652.herokuapp.com/products/${id}`)
+    fetch(`https://speako-server.vercel.app/products/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, []);

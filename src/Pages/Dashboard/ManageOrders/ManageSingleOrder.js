@@ -16,7 +16,7 @@ const ManageSingleOrder = ({ order, setControl, index }) => {
   console.log(order);
   const handleUpdateBooking = (id, value) => {
     order.deliveryStatus = value;
-    fetch(`https://gentle-forest-53652.herokuapp.com/orders/${_id}`, {
+    fetch(`https://speako-server.vercel.app/orders/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -37,7 +37,7 @@ const ManageSingleOrder = ({ order, setControl, index }) => {
     const confirmMessage = "Are you sure, you want to cancel the order?";
     if (window.confirm(confirmMessage)) {
       //eslint-disable-line
-      fetch(`https://gentle-forest-53652.herokuapp.com/orders/${_id}`, {
+      fetch(`https://speako-server.vercel.app/orders/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

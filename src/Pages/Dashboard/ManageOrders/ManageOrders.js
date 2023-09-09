@@ -9,7 +9,7 @@ const ManageOrders = () => {
   useEffect(() => {
     setLoading(true);
     console.log(loading);
-    fetch("https://gentle-forest-53652.herokuapp.com/orders")
+    fetch("https://speako-server.vercel.app/orders")
       .then((res) => res.json())
       .then((result) => {
         setLoading(false);

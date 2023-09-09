@@ -28,7 +28,7 @@ const Review = () => {
       return;
     }
 
-    fetch("https://gentle-forest-53652.herokuapp.com/reviews", {
+    fetch("https://speako-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

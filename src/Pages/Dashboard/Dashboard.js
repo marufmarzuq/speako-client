@@ -39,7 +39,7 @@ const Dashboard = () => {
   const [sidebarFold, setSidebarFold] = useState(false);
 
   useEffect(() => {
-    fetch(`https://gentle-forest-53652.herokuapp.com/users/${user.email}`)
+    fetch(`https://speako-server.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);

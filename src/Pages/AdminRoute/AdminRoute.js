@@ -10,8 +10,7 @@ const AdminRoute = ({ children, ...rest }) => {
 
   useEffect(() => {
     setLoading(true);
-    console.log(loading);
-    fetch(`https://gentle-forest-53652.herokuapp.com/users/${user.email}`)
+    fetch(`https://speako-server.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data, loading);

@@ -28,7 +28,7 @@ const Login = () => {
         setUser(result.user);
         const saveUser = (displayName, email, photoURL) => {
           const user = { displayName, email, photoURL };
-          fetch("https://gentle-forest-53652.herokuapp.com/users", {
+          fetch("https://speako-server.vercel.app/users", {
             method: "PUT",
             headers: {
               "content-type": "application/json",
